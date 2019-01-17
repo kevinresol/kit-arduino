@@ -11,7 +11,7 @@ kitc \
   --no-compile \
   hello.kit && \
   
-pushd build/lib && make -f ../../Makefile && popd && \
-
-avrdude -C /Applications/Arduino.app/Contents/Java/hardware/tools/avr/etc/avrdude.conf -p atmega328p -c arduino -b 115200 -P /dev/cu.usbmodem14131 -U flash:w:build/lib/build-uno/lib.hex
-
+pushd build/lib && \
+  make -f ../../Makefile && \
+  make do_upload -f ../../Makefile && \
+popd
